@@ -17,11 +17,15 @@ h1 {
 h4 {
     text-align: center;
 }
+h2 {
+    text-align: center;
+}
 ul {
     list-style-type: none;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 50px 0;
 }
 button {
     width: 200px;
@@ -33,4 +37,9 @@ button {
     margin: 20px 40px;
     background-color: gray;
     color: white;
+}
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 200px;
 }

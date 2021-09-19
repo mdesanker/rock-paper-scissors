@@ -40,9 +40,26 @@ function game() {
 
 // game()
 
+let playerScore = 0
+let computerScore = 0
+
+const playerScoreDisplay = document.getElementById('player-score');
+const computerScoreDisplay = document.getElementById('computer-score');
+
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        playRound(button.id, computerPlay());
+        if (playRound(button.id, computerPlay())) {     // Play round with player's selection
+            playerScore += 1;
+            playerScoreDisplay.textContent = `${playerScore}`;
+        } else {
+            computerScore += 1;
+            computerScoreDisplay.textContent = `${computerScore}`;
+        };
     })
 })
+
+// Check for 5 games won and end match
+if (playerScore === 5 || computerScore === 5) {
+    // End game and display winner
+}
