@@ -38,4 +38,4 @@ function game() {
     console.log(`You won ${player_wins} out of ${num_games} games`)     // Display how many games player won
 }
 
-game()
+// game()
