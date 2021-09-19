@@ -43,12 +43,20 @@ function game() {
 let playerScore = 0
 let computerScore = 0
 
-const playerScoreDisplay = document.getElementById('player-score');
-const computerScoreDisplay = document.getElementById('computer-score');
+const outputWindow = document.querySelector('.output');
+
+const displayPlayerChoice = document.querySelector('#player-choice');
+const displayComputerChoice = document.querySelector('#computer-choice');
+
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        let playerChoice = button.id; // Check var name
+        let computerChoice = computerPlay();
+        displayPlayerChoice.textContent = `You chose: ${playerChoice}`;
+        displayComputerChoice.textContent = `Computer chose: ${computerChoice}`;
+
         if (playRound(button.id, computerPlay())) {     // Play round with player's selection
             playerScore += 1;
             playerScoreDisplay.textContent = `${playerScore}`;
