@@ -56,3 +56,6 @@ button {
 .output p {
     margin: 0;
 }
+#current-score {
+    padding: 20px 0;
+}

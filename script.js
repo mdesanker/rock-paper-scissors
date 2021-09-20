@@ -73,11 +73,13 @@ buttons.forEach((button) => {
         displayCurrentScore.textContent = `Player: ${playerScore}; Computer: ${computerScore}`
         // Check for 5 games won and end match
         if (playerScore === 5) {
-            displayGameWinner.textContent = "You won the game!";
+            displayGameWinner.style.cssText = "font-weight: 900; font-size: 32px; text-align: center; color: green"
+            displayGameWinner.textContent = "You win!";
             buttons.forEach(button => button.disabled = true);
         } 
         if (computerScore === 5) {
-            displayGameWinner.textContent = "You lost the game.";
+            displayGameWinner.style.cssText = "font-weight: 900; font-size: 32px; text-align: center; color: red"
+            displayGameWinner.textContent = "You lose.";
             buttons.forEach(button => button.disabled = true);
         }
     })
