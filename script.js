@@ -47,7 +47,8 @@ const outputWindow = document.querySelector('.output');
 
 const displayPlayerChoice = document.querySelector('#player-choice');
 const displayComputerChoice = document.querySelector('#computer-choice');
-
+const displayRoundWinner = document.querySelector('#round-winner');
+const displayGameWinner = document.querySelector('#game-winner');
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
@@ -57,17 +58,26 @@ buttons.forEach((button) => {
         displayPlayerChoice.textContent = `You chose: ${playerChoice}`;
         displayComputerChoice.textContent = `Computer chose: ${computerChoice}`;
 
-        if (playRound(button.id, computerPlay())) {     // Play round with player's selection
+        if (playerChoice === computerChoice) {
+            displayRoundWinner.textContent = "This round was a tie."
+        } else if (playRound(playerChoice, computerChoice)) {     // Play round with player's selection
             playerScore += 1;
-            playerScoreDisplay.textContent = `${playerScore}`;
+            // playerScoreDisplay.textContent = `${playerScore}`;
+            displayRoundWinner.textContent = "You won this round!"
         } else {
             computerScore += 1;
-            computerScoreDisplay.textContent = `${computerScore}`;
+            // computerScoreDisplay.textContent = `${computerScore}`;
+            displayRoundWinner.textContent = "You lost this round."
         };
+        // Check for 5 games won and end match
+        if (playerScore === 5) {
+            displayGameWinner.textContent = "You won the game!"
+        } 
+        if (computerScore === 5) {
+            displayGameWinner.textContent = "You lost the game."
+
+}
     })
 })
 
-// Check for 5 games won and end match
-if (playerScore === 5 || computerScore === 5) {
-    // End game and display winner
-}
+
