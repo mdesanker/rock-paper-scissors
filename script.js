@@ -48,6 +48,7 @@ const outputWindow = document.querySelector('.output');
 const displayPlayerChoice = document.querySelector('#player-choice');
 const displayComputerChoice = document.querySelector('#computer-choice');
 const displayRoundWinner = document.querySelector('#round-winner');
+const displayCurrentScore = document.querySelector('#current-score');
 const displayGameWinner = document.querySelector('#game-winner');
 
 const buttons = document.querySelectorAll('button');
@@ -69,14 +70,16 @@ buttons.forEach((button) => {
             // computerScoreDisplay.textContent = `${computerScore}`;
             displayRoundWinner.textContent = "You lost this round."
         };
+        displayCurrentScore.textContent = `Player: ${playerScore}; Computer: ${computerScore}`
         // Check for 5 games won and end match
         if (playerScore === 5) {
-            displayGameWinner.textContent = "You won the game!"
+            displayGameWinner.textContent = "You won the game!";
+            buttons.forEach(button => button.disabled = true);
         } 
         if (computerScore === 5) {
-            displayGameWinner.textContent = "You lost the game."
-
-}
+            displayGameWinner.textContent = "You lost the game.";
+            buttons.forEach(button => button.disabled = true);
+        }
     })
 })
 
