@@ -39,6 +39,14 @@ button {
     background-color: gray;
     color: white;
 }
+button:hover {
+    background-color: white;
+    color: black;
+}
+button:active {
+    background-color: black;
+    color: white;
+}
 .scoreboard {
     display: flex;
     justify-content: center;
